@@ -4,6 +4,8 @@ import {
   completeElement,
 } from "./element-generator";
 
+import bannerImageSrc from "./images/banner.png";
+
 export default function pageLoad() {
   const content = document.querySelector("#content");
 
@@ -13,8 +15,8 @@ export default function pageLoad() {
   const restaurantName = completeElement("h1", "sushi sushi");
   header.appendChild(restaurantName);
 
-  const banner = imageElement("./images/banner.png", "banner image of sushi");
-  header.appendChild(banner);
+  const bannerImage = imageElement(bannerImageSrc, "banner image of sushi");
+  header.appendChild(bannerImage);
 
   const nav = document.createElement("nav");
   header.appendChild(nav);
