@@ -1,23 +1,18 @@
-import {
-  createImageElement,
-  createCompleteElement,
-} from "./element-generator.js";
-
 import bannerImageSrc from "./images/banner.png";
 
 export default function pageLoad() {
   const content = document.querySelector("#content");
 
-  const header = createCompleteElement("header");
+  const header = document.createElement("header");
   content.appendChild(header);
 
-  const restaurantName = createCompleteElement("h1", "sushi sushi");
+  const restaurantName = document.createElement("h1");
+  restaurantName.innerHTML = "sushi sushi";
   header.appendChild(restaurantName);
 
-  const bannerImage = createImageElement(
-    bannerImageSrc,
-    "banner image of sushi",
-  );
+  const bannerImage = document.createElement("img");
+  bannerImage.src = bannerImageSrc;
+  bannerImage.alt = "banner image of sushi";
   header.appendChild(bannerImage);
 
   const nav = document.createElement("nav");
