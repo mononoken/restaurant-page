@@ -1,8 +1,7 @@
 import {
-  createLinkListItem,
   createImageElement,
   createCompleteElement,
-} from "./element-generator";
+} from "./element-generator.js";
 
 import bannerImageSrc from "./images/banner.png";
 
@@ -27,18 +26,24 @@ export default function pageLoad() {
   const links = document.createElement("ul");
   nav.appendChild(links);
 
-  const aboutLink = createLinkListItem("About", "#");
-  links.appendChild(aboutLink);
+  const aboutOption = document.createElement("li");
+  const aboutButton = document.createElement("button");
+  aboutButton.innerHTML = "About";
+  aboutButton.id = "about-tab";
+  aboutOption.appendChild(aboutButton);
+  links.appendChild(aboutOption);
 
-  const menuLink = createLinkListItem("Menu", "#");
-  links.appendChild(menuLink);
+  const menuOption = document.createElement("li");
+  const menuButton = document.createElement("button");
+  menuButton.innerHTML = "Menu";
+  menuButton.id = "menu-tab";
+  menuOption.appendChild(menuButton);
+  links.appendChild(menuOption);
 
-  const contactLink = createLinkListItem("Contact", "#");
-  links.appendChild(contactLink);
-
-  const introContent = `
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-    `;
-  const intro = createCompleteElement("p", introContent);
-  content.appendChild(intro);
+  const contactOption = document.createElement("li");
+  const contactButton = document.createElement("button");
+  contactButton.innerHTML = "Contact";
+  contactButton.id = "contact-tab";
+  contactOption.appendChild(contactButton);
+  links.appendChild(contactOption);
 }
